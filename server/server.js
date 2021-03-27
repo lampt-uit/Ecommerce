@@ -1,10 +1,10 @@
+//Import lib
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const fileUpload = require('express-fileupload');
 const cookieParser = require('cookie-parser');
-
 //If you want to use import of ES6  => set : "type":"module" in package.json
 
 const app = express();
