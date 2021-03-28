@@ -7,6 +7,7 @@ const fileUpload = require('express-fileupload');
 const cookieParser = require('cookie-parser');
 //If you want to use import of ES6  => set : "type":"module" in package.json
 
+//Init App
 const app = express();
 
 //Middleware
@@ -19,12 +20,8 @@ app.use(
 	})
 );
 
-//Path
-app.get('/', (req, res) => {
-	res.json({
-		msg: 'You are set up successfully!!!'
-	});
-});
+//Routes
+app.use('/user', require('./routes/userRoute'));
 
 //Connect MongoDB
 const URL = process.env.MONGODB_URL;
@@ -42,6 +39,7 @@ mongoose.connect(
 	}
 );
 
+//Run
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
 	console.log(`Server is running on port : ${PORT}`);
