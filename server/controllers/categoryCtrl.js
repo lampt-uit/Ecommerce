@@ -13,7 +13,6 @@ const categoryCtrl = {
 		try {
 			//If user have role ==1 => Admin
 			//Ony Admin can create, delete and update category
-
 			const { name } = req.body;
 
 			const category = await Category.findOne({ name });
