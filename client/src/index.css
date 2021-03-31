@@ -38,3 +38,9 @@ button {
 
 /* ------Header------ */
 @import url('./components/headers/Header.css');
+
+/* ------Products------ */
+@import url('./components/mainpages/products/Products.css');
+
+/* ------Detail Product------ */
+@import url('./components/mainpages/detailProduct/DetailProduct.css');
