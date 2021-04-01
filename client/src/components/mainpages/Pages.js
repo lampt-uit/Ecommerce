@@ -8,11 +8,13 @@ import Cart from './cart/Cart';
 import NotFound from './utils/NotFound/NotFound';
 import OrderHistory from './history/OrderHistory';
 import OrderDetails from './history/OrderDetails';
+import Categories from './categories/Categories';
 
 import { GlobalState } from '../../GlobalState';
 const Pages = () => {
 	const state = useContext(GlobalState);
 	const [isLogged] = state.userAPI.isLogged;
+	const [isAdmin] = state.userAPI.isAdmin;
 	// console.log([isLogged]);
 	return (
 		<Switch>
@@ -20,6 +22,12 @@ const Pages = () => {
 			<Route path='/detail/:id' exact component={DetailProduct} />
 
 			<Route path='/login' exact component={isLogged ? NotFound : Login} />
+			<Route
+				path='/category'
+				exact
+				component={isAdmin ? Categories : NotFound}
+			/>
+
 			<Route
 				path='/register'
 				exact
