@@ -1,5 +1,4 @@
 import React from 'react';
-import Loading from './Loading.css';
 const loading = () => {
 	return (
 		<div className='load-page'>

@@ -13,7 +13,7 @@ class APIfeatures {
 		const excludedFields = ['page', 'sort', 'limit'];
 		excludedFields.forEach((el) => delete queryObj[el]);
 
-		console.log({ after: queryObj }); //After delete page , sort
+		// console.log({ after: queryObj }); //After delete page , sort
 
 		//Stringify => JSON
 		let queryStr = JSON.stringify(queryObj);

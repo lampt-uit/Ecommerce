@@ -9,6 +9,7 @@ const Cart = () => {
 	const state = useContext(GlobalState);
 	const [cart, setCart] = state.userAPI.cart;
 	const [total, setTotal] = useState(0);
+	const [callback, setCallback] = state.userAPI.callback;
 	const [token] = state.token;
 
 	useEffect(() => {
@@ -20,7 +21,7 @@ const Cart = () => {
 		};
 		getTotal();
 	}, [cart]);
-	const addToCart = async () => {
+	const addToCart = async (cart) => {
 		await axios.patch(
 			'/user/addcart',
 			{ cart },
@@ -38,7 +39,7 @@ const Cart = () => {
 		});
 		//New cart
 		setCart([...cart]);
-		addToCart();
+		addToCart(cart);
 	};
 
 	const decrease = (id) => {
@@ -49,7 +50,7 @@ const Cart = () => {
 		});
 		//New cart
 		setCart([...cart]);
-		addToCart();
+		addToCart(cart);
 	};
 
 	const removeProduct = (id) => {
@@ -61,12 +62,28 @@ const Cart = () => {
 			});
 
 			setCart([...cart]);
-			addToCart();
+			addToCart(cart);
 		}
 	};
 
 	const tranSuccess = async (payment) => {
-		console.log(payment);
+		// console.log(payment);
+		const { paymentID, address } = payment;
+		await axios.post(
+			'/api/payment',
+			{
+				cart,
+				paymentID,
+				address
+			},
+			{
+				headers: { Authorization: token }
+			}
+		);
+		setCart([]);
+		addToCart([]);
+		alert('You have successfully placed an order');
+		setCallback(!callback);
 	};
 
 	if (cart.length === 0)
