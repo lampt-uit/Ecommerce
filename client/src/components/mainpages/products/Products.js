@@ -5,13 +5,19 @@ import Loading from '../utils/loading/Loading';
 const Products = () => {
 	const state = useContext(GlobalState);
 	const [products] = state.productsAPI.products;
-
-	console.log(products);
+	// console.log(products);
+	const [isAdmin] = state.userAPI.isAdmin;
 	return (
 		<>
 			<div className='products'>
 				{products.map((product) => {
-					return <ProductItem key={product._id} product={product} />;
+					return (
+						<ProductItem
+							key={product._id}
+							product={product}
+							isAdmin={isAdmin}
+						/>
+					);
 				})}
 			</div>
 			{products.length === 0 && <Loading />}
