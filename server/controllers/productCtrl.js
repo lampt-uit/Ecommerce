@@ -8,7 +8,7 @@ class APIfeatures {
 	filtering() {
 		const queryObj = { ...this.queryString };
 		//queryString=req.query
-		console.log({ before: queryObj }); //Before delete page , sort
+		// console.log({ before: queryObj }); //Before delete page , sort
 
 		const excludedFields = ['page', 'sort', 'limit'];
 		excludedFields.forEach((el) => delete queryObj[el]);
@@ -28,7 +28,7 @@ class APIfeatures {
 			/\b(gte|gt|lt|lte|regex)\b/g,
 			(match) => '$' + match
 		);
-		console.log({ queryStr });
+		// console.log({ queryStr });
 
 		this.query.find(JSON.parse(queryStr));
 

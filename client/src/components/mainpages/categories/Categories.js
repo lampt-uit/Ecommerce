@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react';
 import { GlobalState } from '../../../GlobalState';
 const Categories = () => {
 	const state = useContext(GlobalState);
-	const [categories, setCategories] = state.categoriesAPI.categories;
+	const [categories] = state.categoriesAPI.categories;
 	const [category, setCategory] = useState('');
 	const [token] = state.token;
 	const [callback, setCallback] = state.categoriesAPI.callback;
@@ -68,7 +68,7 @@ const Categories = () => {
 					required
 					onChange={(e) => setCategory(e.target.value)}
 				/>
-				<button type='submit'>{onEdit ? 'Update' : 'Save'}</button>
+				<button type='submit'>{onEdit ? 'Update' : 'Create'}</button>
 			</form>
 
 			<div className='col'>

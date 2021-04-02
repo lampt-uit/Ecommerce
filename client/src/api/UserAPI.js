@@ -6,7 +6,7 @@ const UserAPI = (token) => {
 	const [isAdmin, setIsAdmin] = useState(false);
 	const [cart, setCart] = useState([]);
 	const [history, setHistory] = useState([]);
-	const [callback, setCallback] = useState();
+	// const [callback, setCallback] = useState();
 	useEffect(() => {
 		if (token) {
 			const getUser = async () => {
@@ -28,26 +28,26 @@ const UserAPI = (token) => {
 		}
 	}, [token]);
 
-	useEffect(() => {
-		if (token) {
-			const getHistory = async () => {
-				if (isAdmin) {
-					//This API get all payments
-					const res = await axios.get('/api/payment', {
-						headers: { Authorization: token }
-					});
-					setHistory(res.data);
-				} else {
-					//This API get payment of user
-					const res = await axios.get('/user/history', {
-						headers: { Authorization: token }
-					});
-					setHistory(res.data);
-				}
-			};
-			getHistory();
-		}
-	}, [token, callback, isAdmin]); //if dev [token, callback => no run bc token,callback not change]
+	// useEffect(() => {
+	// 	if (token) {
+	// 		const getHistory = async () => {
+	// 			if (isAdmin) {
+	// 				//This API get all payments
+	// 				const res = await axios.get('/api/payment', {
+	// 					headers: { Authorization: token }
+	// 				});
+	// 				setHistory(res.data);
+	// 			} else {
+	// 				//This API get payment of user
+	// 				const res = await axios.get('/user/history', {
+	// 					headers: { Authorization: token }
+	// 				});
+	// 				setHistory(res.data);
+	// 			}
+	// 		};
+	// 		getHistory();
+	// 	}
+	// }, [token, callback, isAdmin]); //if dev [token, callback => no run bc token,callback not change]
 
 	const addCart = async (product) => {
 		if (!isLogged) return alert('Please Login To Continue buying');
@@ -77,8 +77,8 @@ const UserAPI = (token) => {
 		isAdmin: [isAdmin, setIsAdmin],
 		cart: [cart, setCart],
 		addCart: addCart,
-		history: [history, setHistory],
-		callback: [callback, setCallback]
+		history: [history, setHistory]
+		// callback: [callback, setCallback]
 	};
 };
 

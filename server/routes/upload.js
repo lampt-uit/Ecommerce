@@ -14,9 +14,9 @@ cloudinary.config({
 });
 
 //Upload image
-router.post('/upload', (req, res) => {
+router.post('/upload', auth, authAdmin, (req, res) => {
 	try {
-		console.log(req.files);
+		// console.log(req.files);
 		if (!req.files || Object.keys(req.files).length === 0)
 			return res.status(400).json({ msg: 'No file were upload' });
 		const file = req.files.file;

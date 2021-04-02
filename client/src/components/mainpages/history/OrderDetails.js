@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useParams, userParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { GlobalState } from '../../../GlobalState';
 const OrderDetails = () => {
 	const state = useContext(GlobalState);

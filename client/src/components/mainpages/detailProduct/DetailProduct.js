@@ -10,7 +10,7 @@ const DetailProduct = () => {
 	const [detailProduct, setDetailProduct] = useState([]);
 
 	useEffect(() => {
-		console.log('re render');
+		// console.log('re render');
 		if (params.id) {
 			products.forEach((product) => {
 				if (product._id === params.id) setDetailProduct(product);

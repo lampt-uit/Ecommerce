@@ -17,7 +17,7 @@ const Header = () => {
 
 	const logoutUser = async () => {
 		await axios.get('/user/logout');
-		localStorage.clear();
+		localStorage.removeItem('firstLogin');
 		// setIsAdmin(false);
 		// setIsLogged(false);
 		window.location.href = '/';
@@ -53,7 +53,7 @@ const Header = () => {
 	return (
 		<header>
 			<div className='menu'>
-				<img src={Menu} width='30' atl='#'></img>
+				<img src={Menu} width='30' alt='bars' />
 			</div>
 			<div className='logo'>
 				<h1>
@@ -85,7 +85,7 @@ const Header = () => {
 					{/* Display number product has been in cart */}
 					<span>{cart.length}</span>
 					<Link to='/cart'>
-						<img src={Cart} atl='' width='30'></img>
+						<img src={Cart} alt='cart' width='30' />
 					</Link>
 				</div>
 			)}

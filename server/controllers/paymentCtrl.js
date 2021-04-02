@@ -48,6 +48,6 @@ const sold = async (id, quantity, oldSold) => {
 		}
 	);
 };
-console.log(sold);
+// console.log(sold);
 
 module.exports = paymentCtrl;

@@ -9,6 +9,7 @@ import NotFound from './utils/NotFound/NotFound';
 import OrderHistory from './history/OrderHistory';
 import OrderDetails from './history/OrderDetails';
 import Categories from './categories/Categories';
+import CreateProduct from './createProduct/CreateProduct';
 
 import { GlobalState } from '../../GlobalState';
 const Pages = () => {
@@ -26,6 +27,17 @@ const Pages = () => {
 				path='/category'
 				exact
 				component={isAdmin ? Categories : NotFound}
+			/>
+
+			<Route
+				path='/create_product'
+				exact
+				component={isAdmin ? CreateProduct : NotFound}
+			/>
+			<Route
+				path='/edit_product/:id'
+				exact
+				component={isAdmin ? CreateProduct : NotFound}
 			/>
 
 			<Route

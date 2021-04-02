@@ -1,5 +1,7 @@
 import React from 'react';
-const loading = () => {
+import './Loading.css';
+
+function Loading() {
 	return (
 		<div className='load-page'>
 			<div className='loader'>
@@ -9,7 +11,9 @@ const loading = () => {
 							<div>
 								<div>
 									<div>
-										<div></div>
+										<div>
+											<div></div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -19,6 +23,6 @@ const loading = () => {
 			</div>
 		</div>
 	);
-};
+}
 
-export default loading;
+export default Loading;
